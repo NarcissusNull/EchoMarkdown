@@ -91,6 +91,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Document\已知bug.md" />
     <None Include="Document\需求1.0.0.0.md" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

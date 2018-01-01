@@ -123,7 +123,7 @@
                 <MenuItem Name="menuAbout"    Header="关于(A)" FontSize="12" Foreground="White" Click="MenuAbout_Click"></MenuItem>
             </MenuItem>
         </Menu>
-        <RichTextBox Name="richTextBox" Grid.Column="1" Grid.Row="2" Background="#1e1e1e" Foreground="White" BorderThickness="0" KeyUp="RichTextBox_KeyUp"></RichTextBox>
+        <TextBox TextChanged="TextBox_TextChanged" Name="textBox" AcceptsReturn="True" Grid.Column="1" Grid.Row="2" Background="#1e1e1e" Foreground="White" BorderThickness="0"></TextBox>
         <GridSplitter Grid.Row="2" Grid.Column="2"  Width="10" Background="#2d2d30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ></GridSplitter>
         <WebBrowser Name="web" Grid.Column="3" Grid.Row="2"></WebBrowser>
 </Grid>

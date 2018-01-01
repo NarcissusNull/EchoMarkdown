@@ -1,9 +1,11 @@
-﻿using System.ComponentModel;
+﻿using MarkdownSharp;
+using System.ComponentModel;
+using System.Configuration;
 
 namespace EchoMarkdown.ViewModels
 {
     class MainWindowViewModel : NotificationObject
-    {
+    { 
         private double height;
         private double width;
         private string title;
@@ -39,6 +41,7 @@ namespace EchoMarkdown.ViewModels
                 this.RaisePropertyChange("Title");
             }
         }
+
 
         public string CurrentFileName
         {

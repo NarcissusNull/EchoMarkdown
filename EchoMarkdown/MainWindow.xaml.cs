@@ -1,11 +1,8 @@
 ﻿using EchoMarkdown.ViewModels;
-using System;
 using System.Windows;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Configuration;
-using EchoMarkdown.Models;
 using MarkdownSharp;
+using EchoMarkdown.Models;
 
 namespace EchoMarkdown
 {
@@ -30,20 +27,6 @@ namespace EchoMarkdown
             mainWindowViewModel.Width  = System.Convert.ToDouble(ConfigurationManager.AppSettings["Width"]);
             mainWindowViewModel.CurrentFileName = "new.md";
             mainWindowViewModel.IsSaved = true;
-            tempHtml.OnValueChanged += new TempHtml.delValueChange(P_OnValueChanged);
-            tempHtml.Markdown = new Markdown();
-        }
-
-        private void P_OnValueChanged(object sender, EventArgs e)
-        {
-            string s = (sender as TempHtml).Html;
-            this.web.NavigateToString(tempHtml.Header + s);
-        }
-
-        private void RichTextBox_KeyUp(object sender, KeyEventArgs e)
-        {
-            TextRange textRange = new TextRange(richTextBox.Document.ContentStart, richTextBox.Document.ContentEnd);
-            tempHtml.Html = tempHtml.Markdown.Transform(textRange.Text);
         }
 
         private void MenuNew_Click(object sender, RoutedEventArgs e)
@@ -52,13 +35,12 @@ namespace EchoMarkdown
             {
                 mainWindowViewModel.CurrentFileName = "new.md";
                 mainWindowViewModel.IsSaved = false;
-                this.richTextBox.Document.Blocks.Clear();
+                textBox.Clear();
             }
             else
             {
                 //TODO[未保存界面]
             }
-
         }
 
         private void MenuOpen_Click(object sender, RoutedEventArgs e)
@@ -129,6 +111,11 @@ namespace EchoMarkdown
         private void MenuAbout_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void TextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            this.web.NavigateToString(tempHtml.Header + tempHtml.Markdown.Transform(textBox.Text));
         }
     }
 }
