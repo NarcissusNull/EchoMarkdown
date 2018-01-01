@@ -1,0 +1,130 @@
+﻿<Window x:Class="EchoMarkdown.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EchoMarkdown"
+        xmlns:shell="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+        mc:Ignorable="d"
+        Title="{Binding Title}" Height="{Binding Height}" Width="{Binding Width}" WindowStyle="None" WindowChrome.WindowChrome="{DynamicResource WindowChromeKey}">
+    <Window.Resources>
+        <WindowChrome x:Key="WindowChromeKey">
+            <WindowChrome.ResizeBorderThickness>
+                <Thickness>5</Thickness>
+            </WindowChrome.ResizeBorderThickness>
+            <WindowChrome.CornerRadius>0</WindowChrome.CornerRadius>
+            <WindowChrome.CaptionHeight>30</WindowChrome.CaptionHeight>
+            <WindowChrome.GlassFrameThickness>0</WindowChrome.GlassFrameThickness>
+            <WindowChrome.UseAeroCaptionButtons>true</WindowChrome.UseAeroCaptionButtons>
+        </WindowChrome>
+        <Style TargetType="{x:Type MenuItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type MenuItem}">
+                        <Border Height="18" x:Name="bd" Background="#2d2d30">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition x:Name="grid1" Width="*" MinWidth="60"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition x:Name="grid2" Width="*"></ColumnDefinition>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <ContentPresenter x:Name="cont" Margin="0,0" ContentSource="Header" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <ContentPresenter Grid.Column="0" Width="10"
+                                                  Margin="4,0,6,0" x:Name="Icon" 
+                                                  VerticalAlignment="Center" ContentSource="Icon"/>
+                                <Popup HorizontalAlignment="Left" IsOpen="{Binding Path=IsSubmenuOpen, 
+                                       RelativeSource ={RelativeSource TemplatedParent}}" 
+                                       Placement="Bottom" x:Name="SubMenuPopup" Focusable="False" 
+                                       PopupAnimation="{DynamicResource {x:Static SystemParameters.MenuPopupAnimationKey}}">
+                                    <Border x:Name="SubMenuBorder" BorderBrush="#1b1b1c" 
+                                        BorderThickness="2" Padding="2,2,2,2" Background="#1b1b1c">
+                                        <!--{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType={x:Type Menu}}}-->
+                                        <Grid x:Name="SubMenu" Grid.IsSharedSizeScope="True">
+                                            <!-- StackPanel holds children of the menu. This is set by IsItemsHost=True  KeyboardNavigationMode = "Cycle" -->
+                                            <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Cycle"/>
+                                        </Grid>
+                                    </Border>
+                                </Popup>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Role" Value="SubMenuItem">
+                                <Setter TargetName="cont"  Property="HorizontalAlignment" Value="Left"></Setter>
+                                <Setter TargetName="cont"  Property="Grid.Column"         Value="1"></Setter>
+                                <Setter TargetName="bd"    Property="Background"          Value="#1b1b1c"></Setter>
+                                <Setter TargetName="grid1" Property="MinWidth"            Value="30"></Setter>
+                                <Setter TargetName="grid2" Property="MinWidth"            Value="30"></Setter>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="bd" Property="Background" Value="#3e3e40"/>
+                            </Trigger>
+                            <Trigger Property= "IsSubmenuOpen" Value= "true" >
+                                <Setter TargetName="bd" Property="Background" Value="#1b1b1c"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+<Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="18"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="18"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="34"></RowDefinition>
+            <RowDefinition Height="18"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="0" Height="34" Background="#2d2d30" VerticalAlignment="Top">
+            <TextBlock Text="{Binding Title}" FontSize="14" Foreground="Gray" VerticalAlignment="Center"/>
+        </Border>
+        <Border Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="3" Height="26" Background="#2d2d30" VerticalAlignment="Top">
+            <TextBlock Text="{Binding Title}" FontSize="12" Foreground="Gray" VerticalAlignment="Center"/>
+        </Border>
+        <Border Grid.Column="0" Grid.Row="2" Background="#2d2d30">
+        </Border>
+        <Border Grid.Column="4" Grid.Row="2" Background="#2d2d30">
+        </Border>
+        <Menu Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="1" Background="#2d2d30">
+            <MenuItem Header="文件(F)" FontSize="12" Foreground="White">
+                <MenuItem Name="menuNew"    Foreground="White" Header="新建(N)"   Click="MenuNew_Click"></MenuItem>
+                <MenuItem Name="menuOpen"   Foreground="White" Header="打开(O)"   Click="MenuOpen_Click"></MenuItem>
+                <MenuItem Name="menuSave"   Foreground="White" Header="保存(S)"   Click="MenuSave_Click"></MenuItem>
+                <MenuItem Name="menuSaveAs" Foreground="White" Header="另存为(A)" Click="MenuSaveAs_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="编辑(E)" FontSize="12" Foreground="White">
+                <MenuItem Name="menuSearch" Header="查找与替换(F)" FontSize="12" Foreground="White" Click="MenuSearch_Click"></MenuItem>
+                <!--<MenuItem Header="复制(C)" FontSize="12" Foreground="White"></MenuItem>
+                <MenuItem Header="剪切(T)" FontSize="12" Foreground="White"></MenuItem>
+                <MenuItem Header="粘贴(P)" FontSize="12" Foreground="White"></MenuItem>
+                <MenuItem Header="全选(A)" FontSize="12" Foreground="White"></MenuItem>
+                <MenuItem Header="删除(D)" FontSize="12" Foreground="White"></MenuItem>-->
+                <MenuItem Name="menuUndo" Header="撤销(U)" FontSize="12" Foreground="White" Click="MenuUndo_Click"></MenuItem>
+                <MenuItem Name="menuRedo" Header="重做(R)" FontSize="12" Foreground="White" Click="MenuRedo_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="工具(T)" FontSize="12" Foreground="White">
+                <MenuItem Name="menuCount"  Header="字数统计(C)" FontSize="12" Foreground="White" Click="MenuCount_Click"></MenuItem>
+                <MenuItem Name="menuNo"     Header="显示行号(N)" FontSize="12" Foreground="White" Click="MenuNo_Click"></MenuItem>
+                <MenuItem Name="menuExport" Header="导出为(E)"   FontSize="12" Foreground="White" Click="MenuExport_Click"></MenuItem>
+                <MenuItem Name="menuUpdate" Header="检查更新(U)" FontSize="12" Foreground="White" Click="MenuUpdate_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="帮助(H)" FontSize="12" Foreground="White">
+                <MenuItem Name="menuConfig"   Header="配置(C)" FontSize="12" Foreground="White" Click="MenuConfig_Click"></MenuItem>
+                <MenuItem Name="menuFeedback" Header="反馈(F)" FontSize="12" Foreground="White" Click="MenuFeedback_Click"></MenuItem>
+                <MenuItem Name="menuGetcode"  Header="源码(G)" FontSize="12" Foreground="White" Click="MenuGetcode_Click"></MenuItem>
+                <MenuItem Name="menuAbout"    Header="关于(A)" FontSize="12" Foreground="White" Click="MenuAbout_Click"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <RichTextBox Name="richTextBox" Grid.Column="1" Grid.Row="2" Background="#1e1e1e" Foreground="White" BorderThickness="0" KeyUp="RichTextBox_KeyUp"></RichTextBox>
+        <GridSplitter Grid.Row="2" Grid.Column="2"  Width="10" Background="#2d2d30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ></GridSplitter>
+        <WebBrowser Name="web" Grid.Column="3" Grid.Row="2"></WebBrowser>
+</Grid>
+</Window>
