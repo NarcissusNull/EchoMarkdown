@@ -102,13 +102,6 @@
             </MenuItem>
             <MenuItem Header="编辑(E)" FontSize="12" Foreground="White">
                 <MenuItem Name="menuSearch" Header="查找与替换(F)" FontSize="12" Foreground="White" Click="MenuSearch_Click"></MenuItem>
-                <!--<MenuItem Header="复制(C)" FontSize="12" Foreground="White"></MenuItem>
-                <MenuItem Header="剪切(T)" FontSize="12" Foreground="White"></MenuItem>
-                <MenuItem Header="粘贴(P)" FontSize="12" Foreground="White"></MenuItem>
-                <MenuItem Header="全选(A)" FontSize="12" Foreground="White"></MenuItem>
-                <MenuItem Header="删除(D)" FontSize="12" Foreground="White"></MenuItem>-->
-                <MenuItem Name="menuUndo" Header="撤销(U)" FontSize="12" Foreground="White" Click="MenuUndo_Click"></MenuItem>
-                <MenuItem Name="menuRedo" Header="重做(R)" FontSize="12" Foreground="White" Click="MenuRedo_Click"></MenuItem>
             </MenuItem>
             <MenuItem Header="工具(T)" FontSize="12" Foreground="White">
                 <MenuItem Name="menuCount"  Header="字数统计(C)" FontSize="12" Foreground="White" Click="MenuCount_Click"></MenuItem>
