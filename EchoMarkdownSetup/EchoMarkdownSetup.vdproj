@@ -46,12 +46,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_8E8AD6E1AD85B205A971E913CBB3D71C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_9CE7287B1D894AF28783C426824ABEF1"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -59,6 +53,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_896A8EDFD2E6655017055D6CE4B38400"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_8E8AD6E1AD85B205A971E913CBB3D71C"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -111,6 +111,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -439,7 +447,7 @@
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
             "Target" = "8:_9CE7287B1D894AF28783C426824ABEF1"
-            "Folder" = "8:_C987D9EBBA3A4E19AABE2EF01D1C7FFF"
+            "Folder" = "8:_BDA21521DBD14E5D869ECB83991E540D"
             "WorkingFolder" = "8:_C987D9EBBA3A4E19AABE2EF01D1C7FFF"
             "Icon" = "8:"
             "Feature" = "8:"
