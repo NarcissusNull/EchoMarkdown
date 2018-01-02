@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EchoMarkdown", "EchoMarkdown\EchoMarkdown.csproj", "{761EE030-7C5A-458E-AB93-226E2DBFD170}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "EchoMarkdownSetup", "..\EchoMarkdownSetup\EchoMarkdownSetup.vdproj", "{7E28D937-3566-4163-A714-ECDE654F52FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{761EE030-7C5A-458E-AB93-226E2DBFD170}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{761EE030-7C5A-458E-AB93-226E2DBFD170}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{761EE030-7C5A-458E-AB93-226E2DBFD170}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E28D937-3566-4163-A714-ECDE654F52FD}.Debug|Any CPU.ActiveCfg = Debug
+		{7E28D937-3566-4163-A714-ECDE654F52FD}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
