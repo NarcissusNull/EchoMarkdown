@@ -100,17 +100,17 @@
                 <MenuItem Name="menuSave"   Foreground="White" Header="保存(S)"   Click="MenuSave_Click"></MenuItem>
                 <MenuItem Name="menuSaveAs" Foreground="White" Header="另存为(A)" Click="MenuSaveAs_Click"></MenuItem>
             </MenuItem>
-            <MenuItem Header="编辑(E)" FontSize="12" Foreground="White">
+            <!--<MenuItem Header="编辑(E)" FontSize="12" Foreground="White">
                 <MenuItem Name="menuSearch" Header="查找与替换(F)" FontSize="12" Foreground="White" Click="MenuSearch_Click"></MenuItem>
             </MenuItem>
             <MenuItem Header="工具(T)" FontSize="12" Foreground="White">
                 <MenuItem Name="menuCount"  Header="字数统计(C)" FontSize="12" Foreground="White" Click="MenuCount_Click"></MenuItem>
-                <MenuItem Name="menuNo"     Header="显示行号(N)" FontSize="12" Foreground="White" Click="MenuNo_Click"></MenuItem>
+                --><!--<MenuItem Name="menuNo"     Header="显示行号(N)" FontSize="12" Foreground="White" Click="MenuNo_Click"></MenuItem>--><!--
                 <MenuItem Name="menuExport" Header="导出为(E)"   FontSize="12" Foreground="White" Click="MenuExport_Click"></MenuItem>
-                <MenuItem Name="menuUpdate" Header="检查更新(U)" FontSize="12" Foreground="White" Click="MenuUpdate_Click"></MenuItem>
-            </MenuItem>
+                --><!--<MenuItem Name="menuUpdate" Header="检查更新(U)" FontSize="12" Foreground="White" Click="MenuUpdate_Click"></MenuItem>--><!--
+            </MenuItem>-->
             <MenuItem Header="帮助(H)" FontSize="12" Foreground="White">
-                <MenuItem Name="menuConfig"   Header="配置(C)" FontSize="12" Foreground="White" Click="MenuConfig_Click"></MenuItem>
+                <!--<MenuItem Name="menuConfig"   Header="配置(C)" FontSize="12" Foreground="White" Click="MenuConfig_Click"></MenuItem>-->
                 <MenuItem Name="menuFeedback" Header="反馈(F)" FontSize="12" Foreground="White" Click="MenuFeedback_Click"></MenuItem>
                 <MenuItem Name="menuGetcode"  Header="源码(G)" FontSize="12" Foreground="White" Click="MenuGetcode_Click"></MenuItem>
                 <MenuItem Name="menuAbout"    Header="关于(A)" FontSize="12" Foreground="White" Click="MenuAbout_Click"></MenuItem>

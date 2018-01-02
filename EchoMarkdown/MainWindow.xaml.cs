@@ -1,4 +1,25 @@
-﻿using EchoMarkdown.ViewModels;
+﻿#region the GNU General Public License
+/*
+ *  Echomarkdown - An editor for Markdown
+ *  ------------
+ *  Copyright(C) 2017-2018  Narcissus Null
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.If not, see<http://www.gnu.org/licenses/>.
+ */
+#endregion
+
+using EchoMarkdown.ViewModels;
 using System.Windows;
 using System.Configuration;
 using EchoMarkdown.Models;
@@ -124,39 +145,39 @@ namespace EchoMarkdown
              }
         }
 
-        private void MenuSearch_Click(object sender, RoutedEventArgs e)
-        {
+        //private void MenuSearch_Click(object sender, RoutedEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void MenuCount_Click(object sender, RoutedEventArgs e)
-        {
+        //private void MenuCount_Click(object sender, RoutedEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void MenuNo_Click(object sender, RoutedEventArgs e)
-        {
+        //private void MenuNo_Click(object sender, RoutedEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void MenuExport_Click(object sender, RoutedEventArgs e)
-        {
+        //private void MenuExport_Click(object sender, RoutedEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void MenuUpdate_Click(object sender, RoutedEventArgs e)
-        {
+        //private void MenuUpdate_Click(object sender, RoutedEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void MenuConfig_Click(object sender, RoutedEventArgs e)
-        {
+        //private void MenuConfig_Click(object sender, RoutedEventArgs e)
+        //{
 
-        }
+        //}
 
         private void MenuFeedback_Click(object sender, RoutedEventArgs e)
         {
-
+            System.Diagnostics.Process.Start("https://github.com/NarcissusNull/EchoMarkdown/issues");
         }
 
         private void MenuGetcode_Click(object sender, RoutedEventArgs e)
@@ -166,7 +187,10 @@ namespace EchoMarkdown
 
         private void MenuAbout_Click(object sender, RoutedEventArgs e)
         {
-
+            About about = new About();
+            about.Owner = this;
+            about.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            about.ShowDialog();
         }
 
         private void TextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
