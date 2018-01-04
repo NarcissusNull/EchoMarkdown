@@ -198,5 +198,27 @@ namespace EchoMarkdown
             mainWindowViewModel.IsSaved = false;
             this.web.NavigateToString(tempHtml.Header + tempHtml.Markdown.Transform(textBox.Text));
         }
+
+        private void Min_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void Max_Click(object sender, RoutedEventArgs e)
+        {
+            if(this.WindowState==WindowState.Normal)
+            {
+                this.WindowState = WindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = WindowState.Normal;
+            }
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
