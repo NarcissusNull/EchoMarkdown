@@ -74,7 +74,15 @@ namespace EchoMarkdown.ViewModels
             }
         }
 
-        public bool IsSaved { get => isSaved; set => isSaved = value; }
+        public bool IsSaved
+        {
+            get { return isSaved; }
+            set
+            {
+                isSaved = value;
+                this.RaisePropertyChange("IsSaved");
+            }
+        }
     }
 
     class NotificationObject : INotifyPropertyChanged

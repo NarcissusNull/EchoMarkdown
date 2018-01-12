@@ -218,6 +218,25 @@ namespace EchoMarkdown
 
         private void Close_Click(object sender, RoutedEventArgs e)
         {
+            if (!mainWindowViewModel.IsSaved)
+            {
+                NotSaved notSaved = new NotSaved(mainWindowViewModel.CurrentFileName);
+                notSaved.Owner = this;
+                notSaved.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                notSaved.ShowDialog();
+                choose = notSaved.Choose;
+                if (choose.Equals("cancel"))
+                {
+                    return;
+                }
+                if (choose.Equals("yes"))
+                {
+                    StreamWriter stream = new StreamWriter(mainWindowViewModel.CurrentFileName);
+                    stream.Write(textBox.Text);
+                    stream.Flush();
+                    stream.Close();
+                }
+            }
             this.Close();
         }
     }
